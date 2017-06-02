@@ -1,3 +1,4 @@
+/*
 var Apples = () => (
   <li>Apples</li>
 );
@@ -6,7 +7,7 @@ var Oranges = () => (
   <li>Oranges</li>
 );
 
-/*
+
 var GroceryList = (props) => {
   var onListItemClick = (event) => {
     console.log('gah i was clicked!');
@@ -22,6 +23,8 @@ var GroceryList = (props) => {
 };
 
 */
+
+var list = ['Apples', 'Oranges', 'Pears'];
 
 class GroceryListItem extends React.Component {
 
@@ -67,7 +70,7 @@ class GroceryListItem extends React.Component {
 var GroceryList = (props) => (
   <ul>
     {props.groceryList.map(groceryItem => 
-      <GroceryListItem grocery={groceryItem} />
+      <GroceryListItem key={groceryItem} grocery={groceryItem} />
     )}
   </ul>
 );
@@ -75,7 +78,7 @@ var GroceryList = (props) => (
 var App = () => (
   <div>
     <h2>Grocery List</h2>
-    <GroceryList groceryList={['Apples', 'Oranges', 'Pears']}/>
+    <GroceryList groceryList={list}/>
   </div>
 );
 
